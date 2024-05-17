@@ -22,7 +22,7 @@ class Joop {
   final bool isTrue;
 }
 
-List<Suroo> orusSurooIndex = [o1, o2];
+List<Suroo> orusSurooIndex = [o1, o2, o3, o4];
 
 const o1 = Suroo(
   text: 'Сөздүк сөзүнүн орусчасы \n',
@@ -43,7 +43,25 @@ const o2 = Suroo(
     Joop(text: 'Афганистан', color: AppColor.kataColor),
   ],
 );
-List<Suroo> anglisSurooIndex = [a1, a2];
+const o3 = Suroo(
+  text: 'Бар орусчасы эмне',
+  jooptor: [
+    Joop(text: 'kjhkj', color: AppColor.kataColor),
+    Joop(text: 'Япщния', color: AppColor.kataColor),
+    Joop(text: 'ghj', color: Colors.green, isTrue: true),
+    Joop(text: 'mb', color: AppColor.kataColor),
+  ],
+);
+const o4 = Suroo(
+  text: 'Бар  эмне',
+  jooptor: [
+    Joop(text: 'kjhhbkj', color: AppColor.kataColor),
+    Joop(text: 'Япkjhщния', color: AppColor.kataColor),
+    Joop(text: 'gkjhhj', color: Colors.green, isTrue: true),
+    Joop(text: 'kjmb', color: AppColor.kataColor),
+  ],
+);
+List<Suroo> anglisSurooIndex = [a1, a2, a3];
 
 const a1 = Suroo(
   text: 'Сөздүк сөзүнүн англисчеси \n',
@@ -62,5 +80,14 @@ const a2 = Suroo(
     Joop(text: 'Япщния', color: AppColor.kataColor),
     Joop(text: 'Туркменистан', color: Colors.green, isTrue: true),
     Joop(text: 'Афганистан', color: AppColor.kataColor),
+  ],
+);
+const a3 = Suroo(
+  text: 'Бар англисчеси эмне',
+  jooptor: [
+    Joop(text: 'Кn ', color: AppColor.kataColor),
+    Joop(text: 'Япщния', color: AppColor.kataColor),
+    Joop(text: 'jhbjhb', color: Colors.green, isTrue: true),
+    Joop(text: 'Афгhkbkhнистан', color: AppColor.kataColor),
   ],
 );

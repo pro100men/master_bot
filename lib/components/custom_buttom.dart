@@ -8,7 +8,6 @@ class CustomButton extends StatefulWidget {
     required this.jooptor,
     required this.onTap,
   });
-
   final List<Joop> jooptor;
   final Function(bool) onTap;
 
@@ -17,37 +16,25 @@ class CustomButton extends StatefulWidget {
 }
 
 class _CustomButtonState extends State<CustomButton> {
-  bool corent = false;
-
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          mainAxisExtent: 90,
+          mainAxisExtent: 100,
         ),
-        padding: const EdgeInsets.all(10),
         itemCount: 4,
         itemBuilder: (context, index) {
           final item = widget.jooptor[index];
 
           return InkWell(
             onTap: () {
-              setState(() {}); // color: (isTrue) {
-              //   if (isTrue == true) {
-              //     widget.joopColor[index].color;
-              //   } else {
-              //     ozgormoColor;
-              //   }
-              // },
-              // widget.color(item.isTrue);
-              corent ? Colors.yellow : widget.onTap(item.isTrue);
-              corent = true;
+              widget.onTap(item.isTrue);
             },
             child: Card(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(10),
               ),
               // color: AppColor.contColor,
               color: item.color,

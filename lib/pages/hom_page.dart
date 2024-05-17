@@ -54,15 +54,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   MaterialPageRoute(
                     builder: (context) => TestPage(
                       suroo: anglisSurooIndex,
-                      sozdor: orusSozdorIndex,
+                      sozdor: orusSozdorYndex,
                     ),
                   ),
                 );
               },
               child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(7),
+                  color: Colors.black12,
+                ),
                 width: double.infinity,
                 height: 50,
-                color: Colors.black12,
                 child: const Align(
                   alignment: Alignment.center,
                   child: Text(

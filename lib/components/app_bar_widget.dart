@@ -18,7 +18,7 @@ class AppBarWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Card(
-          color: Colors.white,
+          color: AppColor.contColor,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
             child: Row(
@@ -26,7 +26,7 @@ class AppBarWidget extends StatelessWidget {
                 Text(
                   '$kataJoop',
                   style: const TextStyle(
-                    fontSize: 16,
+                    fontSize: 19,
                     color: Colors.red,
                   ),
                 ),
@@ -35,7 +35,7 @@ class AppBarWidget extends StatelessWidget {
                   child: Text(
                     '$suroolordunSany',
                     style: const TextStyle(
-                      fontSize: 18,
+                      fontSize: 22,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -43,7 +43,7 @@ class AppBarWidget extends StatelessWidget {
                 Text(
                   tuuraJoop.toString(),
                   style: const TextStyle(
-                    fontSize: 16,
+                    fontSize: 19,
                     color: Colors.green,
                   ),
                 ),
@@ -51,28 +51,21 @@ class AppBarWidget extends StatelessWidget {
             ),
           ),
         ),
-        Text(orusSurooIndex.length.toString(),
-            style: const TextStyle(fontSize: 22)),
-        Row(
-          children: [
-            SizedBox(
-              width: 70,
-              height: 30,
-              child: ListView.builder(
-                itemCount: 1,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return const Icon(Icons.translate,
-                      color: AppColor.appbarIcon);
-                },
-              ),
-            ),
-            // Icon(Icons.favorite, color: Colors.red),
-            // Icon(Icons.favorite, color: Colors.red),
-            // Icon(Icons.favorite, color: Colors.red),
-            // const Icon(Icons.translate),
-          ],
-        )
+        Card(
+          color: AppColor.contColor,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 2),
+            child: Text(orusSurooIndex.length.toString(),
+                style: const TextStyle(fontSize: 22)),
+          ),
+        ),
+        Card(
+          color: AppColor.contColor,
+          child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+              child: Icon(Icons.translate,
+                  color: const Color.fromARGB(255, 8, 8, 0))),
+        ),
       ],
     );
   }
