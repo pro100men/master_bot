@@ -31,6 +31,7 @@ class _TestPageState extends State<TestPage> {
   int yndex = 0;
   int tuuraJoop = 0;
   bool time = false;
+  Color testColor = AppColor.contColor;
 
   int katajoop = 0;
 
@@ -39,9 +40,9 @@ class _TestPageState extends State<TestPage> {
     // final time = Duration(seconds: 30);
 // print("${_printDuration(time)}");
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 231, 227, 177),
+      backgroundColor: AppColor.scaffoldBaground,
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 231, 227, 177),
+        backgroundColor: AppColor.scaffoldBaground,
         title: AppBarWidget(
           suroolordunSany: yndex,
           tuuraJoop: tuuraJoop,
@@ -54,9 +55,7 @@ class _TestPageState extends State<TestPage> {
           children: [
             Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(7),
-                color: AppColor.contColor,
-              ),
+                  borderRadius: BorderRadius.circular(7), color: testColor),
               width: double.infinity,
               height: 137,
               child: Column(
@@ -82,7 +81,13 @@ class _TestPageState extends State<TestPage> {
               onTap: (isTrue) {
                 if (isTrue == true) {
                   tuuraJoop++;
+                  setState(() {
+                    testColor = AppColor.tuuraColor;
+                  });
                 } else {
+                  setState(() {
+                    testColor = AppColor.kataColor;
+                  });
                   katajoop++;
                 }
               },
@@ -98,6 +103,9 @@ class _TestPageState extends State<TestPage> {
                     backgroundColor: AppColor.contColor,
                     child: const Text('Кийинки'),
                     onPressed: () {
+                      setState(() {
+                        testColor = AppColor.contColor;
+                      });
                       // Timer.periodic(Duration(seconds: 10), (Timer t) {
                       setState(() {
                         widget.suroo[yndex++];
@@ -151,36 +159,12 @@ class _TestPageState extends State<TestPage> {
                         });
                         if (yndex == widget.suroo.length) {
                           yndex--;
-                          // showDialog<void>(
-                          //   context: context,
-                          //   builder: (BuildContext context) {
-                          //     return AlertDialog(
-                          //       title: const Text('Тестин жыйынтыгы'),
-                          //       content: Text(
-                          //         'Туура жообтор: $tuuraJoop\n'
-                          //         'Ката жооптоп: $katajoop\n',
-                          //       ),
-                          //       actions: <Widget>[
-                          //         TextButton(
-                          //           style: TextButton.styleFrom(
-                          //             textStyle: Theme.of(context)
-                          //                 .textTheme
-                          //                 .labelLarge,
-                          //           ),
-                          //           child: const Text('Кайра баштоо'),
-                          //           onPressed: () {
-                          // setState(() {
-                          //   yndex = 0;
-                          //   katajoop = 0;
-                          //   tuuraJoop = 0;
-                          // });
-                          //             Navigator.of(context).pop();
-                          //           },
-                          //         ),
-                          //       ],
-                          //     );
-                          //   },
-                          // );
+
+                          setState(() {
+                            yndex = 0;
+                            katajoop = 0;
+                            tuuraJoop = 0;
+                          });
                         }
                       });
                     },
@@ -234,6 +218,8 @@ class _TestPageState extends State<TestPage> {
               // AudioPlayer().play(AssetSource('notes/do.mp3'));
               onTap: () {
                 Timer.periodic(Duration(seconds: 5), (Timer t) {
+                  AudioPlayer().play(
+                      AssetSource('player/${widget.sozdor[index].zapis}'));
                   setState(() {
                     widget.sozdor[index++];
                     if (index == widget.sozdor.length) {
@@ -245,7 +231,7 @@ class _TestPageState extends State<TestPage> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(7),
-                  color: AppColor.contColor,
+                  color: Color.fromARGB(247, 149, 149, 157),
                 ),
                 width: double.infinity,
                 height: 250,
@@ -258,16 +244,16 @@ class _TestPageState extends State<TestPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Card(
-                            color: const Color.fromARGB(255, 231, 227, 177),
+                            color: AppColor.scaffoldBaground,
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 20, vertical: 2),
-                              child: Text(orusSozdorYndex.length.toString(),
+                              child: Text(orusSozdorindex.length.toString(),
                                   style: const TextStyle(fontSize: 22)),
                             ),
                           ),
                           Card(
-                            color: const Color.fromARGB(255, 231, 227, 177),
+                            color: AppColor.scaffoldBaground,
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 20, vertical: 2),
@@ -276,7 +262,7 @@ class _TestPageState extends State<TestPage> {
                             ),
                           ),
                           const Card(
-                            color: Color.fromARGB(255, 231, 227, 177),
+                            color: AppColor.scaffoldBaground,
                             child: Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 15, vertical: 5),
@@ -284,7 +270,7 @@ class _TestPageState extends State<TestPage> {
                                     color: Color.fromARGB(255, 7, 7, 0))),
                           ),
                           const Card(
-                            color: Color.fromARGB(255, 231, 227, 177),
+                            color: AppColor.scaffoldBaground,
                             child: Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 15, vertical: 5),

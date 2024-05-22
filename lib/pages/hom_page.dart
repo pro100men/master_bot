@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   MaterialPageRoute(
                     builder: (context) => TestPage(
                       suroo: anglisSurooIndex,
-                      sozdor: orusSozdorYndex,
+                      sozdor: orusSozdorindex,
                     ),
                   ),
                 );
