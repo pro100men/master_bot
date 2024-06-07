@@ -15,7 +15,7 @@ class sliderWidget extends StatelessWidget {
       ),
       child: Slider(
         value: value,
-        max: 10,
+        max: 100,
         activeColor: Color(0xff1bc61b),
         inactiveColor: Color.fromARGB(255, 231, 144, 122),
         onChanged: (double value) {},

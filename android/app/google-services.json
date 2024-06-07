@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "582073120722",
+    "project_id": "alhamduliila",
+    "storage_bucket": "alhamduliila.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:582073120722:android:fde677288cdf4608d57a0b",
+        "android_client_info": {
+          "package_name": "com.example.master_bot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDny4m6ykqVvBV_GptmaGWUkCQm6fFd3sg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

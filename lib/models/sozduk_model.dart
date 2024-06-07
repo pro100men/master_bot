@@ -19,12 +19,8 @@ final anglisTili = Sozduk(
   text: AppText.anglisText,
   suroo: anglisSurooIndex,
 );
-final arabTili = Sozduk(
-  text: AppText.arabText,
-);
 
 List<Sozduk> continentsSlovar = [
   orusTili,
   anglisTili,
-  arabTili,
 ];

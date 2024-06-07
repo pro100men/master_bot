@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => TestPage(
-                      suroo: anglisSurooIndex,
+                      suroo: orusSurooIndex,
                       sozdor: orusSozdorindex,
                     ),
                   ),

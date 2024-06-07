@@ -66,7 +66,7 @@ List<Suroo> anglisSurooIndex = [a1, a2, a3];
 const a1 = Suroo(
   text: 'Сөздүк сөзүнүн англисчеси \n',
   jooptor: [
-    Joop(text: 'Kyrgyzstan', color: Colors.green, isTrue: true),
+    Joop(text: 'Kyrgyzstan', isTrue: true, color: Colors.green),
     Joop(text: 'Chaina', color: AppColor.kataColor),
     Joop(text: 'Russia', color: AppColor.kataColor),
     Joop(text: 'Kazakstan', color: AppColor.kataColor),

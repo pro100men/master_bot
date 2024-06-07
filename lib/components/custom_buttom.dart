@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:master_bot/constants/app_color.dart';
-import 'package:master_bot/models/color_model.dart';
 
 import 'package:master_bot/models/suroo_model.dart';
 
@@ -19,8 +17,6 @@ class CustomButton extends StatefulWidget {
 }
 
 class _CustomButtonState extends State<CustomButton> {
-  Color colorTest = AppColor.contColor;
-
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -35,7 +31,8 @@ class _CustomButtonState extends State<CustomButton> {
 
           return InkWell(
             onTap: () {
-              setState(() {});
+              item.color;
+
               widget.onTap(item.isTrue);
             },
             child: Card(
@@ -43,6 +40,7 @@ class _CustomButtonState extends State<CustomButton> {
                 borderRadius: BorderRadius.circular(10),
               ),
               color: item.color,
+
               // color: colorTest,
               child: Center(
                   child: Text(

@@ -59,12 +59,75 @@ class AppBarWidget extends StatelessWidget {
                 style: const TextStyle(fontSize: 22)),
           ),
         ),
-        Card(
-          color: AppColor.contColor,
-          child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-              child: Icon(Icons.translate,
-                  color: const Color.fromARGB(255, 8, 8, 0))),
+        InkWell(
+          onTap: () {
+            showDialog<void>(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  actions: <Widget>[
+                    Column(
+                      children: [
+                        TextButton(
+                          child: const Text(' data'),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text('data'),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text('data'),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text('data'),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text('data'),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text('data'),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text('data'),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text('data'),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text('data'),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text('data'),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text('data'),
+                        ),
+                      ],
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+          child: const Card(
+            color: AppColor.contColor,
+            child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                child:
+                    Icon(Icons.more_vert, color: Color.fromARGB(255, 8, 8, 0))),
+          ),
         ),
       ],
     );
