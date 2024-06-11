@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class sliderWidget extends StatelessWidget {
-  const sliderWidget({
+class SliderWidget extends StatelessWidget {
+  const SliderWidget({
     super.key,
     required this.value,
   });
@@ -15,9 +15,9 @@ class sliderWidget extends StatelessWidget {
       ),
       child: Slider(
         value: value,
-        max: 100,
-        activeColor: Color(0xff1bc61b),
-        inactiveColor: Color.fromARGB(255, 231, 144, 122),
+        max: 4,
+        activeColor: const Color(0xff1bc61b),
+        inactiveColor: const Color.fromARGB(255, 231, 144, 122),
         onChanged: (double value) {},
       ),
     );

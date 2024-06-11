@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-
 import 'package:master_bot/components/app_bar_widget.dart';
 import 'package:master_bot/components/custom_buttom.dart';
 import 'package:master_bot/components/slider.dart';
+
 import 'package:master_bot/constants/app_color.dart';
 import 'package:master_bot/models/sozduk_detals_model.dart';
 import 'package:master_bot/models/suroo_model.dart';
@@ -29,49 +29,59 @@ class _TestPageState extends State<TestPage> {
   int index2 = 0;
   int tuuraJoop = 0;
   int katajoop = 0;
+
   Color testColor = AppColor.contColor;
   Color colorTest = AppColor.contColor;
 
   bool isPlaying = false;
+  Timer? _timer;
+  final player = AudioPlayer();
+  Key customButtonKey = UniqueKey();
+
   // double valueSlider = 3600;
 
-  playerMetod() {
-    final player = AudioPlayer();
+  void playerMetod() {
     final audioZapis = widget.sozdor[index2].zapis;
     player.play(AssetSource('player/$audioZapis'));
   }
 
   void timetest() {
-    Timer.periodic(Duration(seconds: 5), (Timer t) {
+    _timer?.cancel();
+    _timer = Timer.periodic(const Duration(seconds: 5), (Timer t) {
       setState(() {
-        widget.suroo[index++];
-      });
-      if (index == widget.suroo.length) {
-        index--;
+        // index++;
 
-        setState(() {
+        if (index < widget.suroo.length - 1) {
+          index++;
+        } else {
           index = 0;
           katajoop = 0;
           tuuraJoop = 0;
-        });
-      }
+        }
+        customButtonKey = UniqueKey();
+      });
     });
   }
 
   void timesozdor() {
-    //  final timeTesst =
-    Timer.periodic(const Duration(seconds: 4), (Timer t) {
+    _timer?.cancel();
+    _timer = Timer.periodic(const Duration(seconds: 4), (Timer t) {
       playerMetod();
       setState(() {
-        widget.sozdor[index2++];
-        if (index == widget.sozdor.length) {
-          index2--;
-          setState(() {
-            index2 = 0;
-          });
+        if (index2 < widget.sozdor.length - 1) {
+          index2++;
+        } else {
+          index2 = 0;
         }
       });
     });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    player.dispose();
+    super.dispose();
   }
 
   @override
@@ -99,7 +109,7 @@ class _TestPageState extends State<TestPage> {
               height: 137,
               child: Column(
                 children: [
-                  sliderWidget(value: index.toDouble()),
+                  SliderWidget(value: index.toDouble()),
                   const Spacer(),
                   Align(
                     alignment: Alignment.center,
@@ -118,18 +128,15 @@ class _TestPageState extends State<TestPage> {
             ),
             const SizedBox(height: 5),
             CustomButton(
+              key: customButtonKey,
               onTap: (isTrue) {
-                if (isTrue == true) {
-                  tuuraJoop++;
-                  setState(() {
-                    testColor = AppColor.tuuraColor;
-                  });
-                } else {
-                  setState(() {
-                    testColor = AppColor.kataColor;
-                  });
-                  katajoop++;
-                }
+                setState(() {
+                  if (isTrue) {
+                    tuuraJoop++;
+                  } else {
+                    katajoop++;
+                  }
+                });
               },
               jooptor: widget.suroo[index].jooptor,
             ),
@@ -148,7 +155,13 @@ class _TestPageState extends State<TestPage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        widget.suroo[index++];
+                        if (index < widget.suroo.length - 1) {
+                          index++;
+                        } else {
+                          index = 0;
+                        }
+
+                        customButtonKey = UniqueKey();
                       });
                       timetest();
                     },
@@ -167,6 +180,7 @@ class _TestPageState extends State<TestPage> {
                       ),
                     ),
                     onPressed: () {
+                      _timer?.cancel();
                       showDialog<void>(
                         context: context,
                         builder: (BuildContext context) {
@@ -213,7 +227,7 @@ class _TestPageState extends State<TestPage> {
               height: 250,
               child: Column(
                 children: [
-                  sliderWidget(value: index2.toDouble()),
+                  SliderWidget(value: index2.toDouble()),
                   Padding(
                     padding: const EdgeInsets.all(4),
                     child: Row(

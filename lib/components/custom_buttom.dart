@@ -17,6 +17,7 @@ class CustomButton extends StatefulWidget {
 }
 
 class _CustomButtonState extends State<CustomButton> {
+  int? selectedIndex;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -25,13 +26,20 @@ class _CustomButtonState extends State<CustomButton> {
           crossAxisCount: 2,
           mainAxisExtent: 100,
         ),
-        itemCount: 4,
+        itemCount: widget.jooptor.length,
         itemBuilder: (context, index) {
           final item = widget.jooptor[index];
+          bool isSelected = selectedIndex == index;
+          Color itemColor = isSelected
+              ? (item.isTrue ? Colors.green : Colors.red)
+              : Colors.grey;
 
           return InkWell(
             onTap: () {
-              item.color;
+              setState(() {
+                selectedIndex = index;
+              });
+              // item.color;
 
               widget.onTap(item.isTrue);
             },
@@ -39,12 +47,10 @@ class _CustomButtonState extends State<CustomButton> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              color: item.color,
-
-              // color: colorTest,
+              color: itemColor,
               child: Center(
                   child: Text(
-                widget.jooptor[index].text,
+                item.text,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
               )),
